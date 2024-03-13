@@ -6,5 +6,25 @@ namespace Undecided
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnNewAcc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

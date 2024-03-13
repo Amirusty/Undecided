@@ -28,44 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnExit = new Button();
+            tbxUser = new TextBox();
+            tbxPass = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            btnLogin = new Button();
+            btnNewAcc = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnExit
             // 
-            button1.Location = new Point(110, 376);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnExit.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
+            btnExit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExit.Location = new Point(32, 295);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(105, 55);
+            btnExit.TabIndex = 0;
+            btnExit.Text = "EXIT";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
-            // button2
+            // tbxUser
             // 
-            button2.Location = new Point(202, 376);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            tbxUser.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxUser.Location = new Point(110, 88);
+            tbxUser.Name = "tbxUser";
+            tbxUser.Size = new Size(151, 33);
+            tbxUser.TabIndex = 2;
+            // 
+            // tbxPass
+            // 
+            tbxPass.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxPass.Location = new Point(110, 137);
+            tbxPass.Name = "tbxPass";
+            tbxPass.Size = new Size(151, 33);
+            tbxPass.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(6, 96);
+            label1.Name = "label1";
+            label1.Size = new Size(101, 25);
+            label1.TabIndex = 4;
+            label1.Text = "Username:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 140);
+            label2.Name = "label2";
+            label2.Size = new Size(95, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Password:";
+            label2.Click += label2_Click;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
+            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Location = new Point(156, 295);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(105, 55);
+            btnLogin.TabIndex = 6;
+            btnLogin.Text = "LOGIN";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // btnNewAcc
+            // 
+            btnNewAcc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNewAcc.Location = new Point(32, 356);
+            btnNewAcc.Name = "btnNewAcc";
+            btnNewAcc.Size = new Size(229, 21);
+            btnNewAcc.TabIndex = 7;
+            btnNewAcc.Text = "CREATE ACCOUNT";
+            btnNewAcc.UseVisualStyleBackColor = true;
+            btnNewAcc.Click += btnNewAcc_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(356, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(310, 426);
+            Controls.Add(btnNewAcc);
+            Controls.Add(btnLogin);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(tbxPass);
+            Controls.Add(tbxUser);
+            Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnExit;
+        private TextBox tbxUser;
+        private TextBox tbxPass;
+        private Label label1;
+        private Label label2;
+        private Button btnLogin;
+        private Button btnNewAcc;
     }
 }

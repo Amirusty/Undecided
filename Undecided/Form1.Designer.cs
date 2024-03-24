@@ -34,7 +34,7 @@
             label1 = new Label();
             label2 = new Label();
             btnLogin = new Button();
-            btnNewAcc = new Button();
+            btnCreateAcc = new Button();
             SuspendLayout();
             // 
             // btnExit
@@ -52,7 +52,7 @@
             // tbxUser
             // 
             tbxUser.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxUser.Location = new Point(110, 88);
+            tbxUser.Location = new Point(125, 90);
             tbxUser.Name = "tbxUser";
             tbxUser.Size = new Size(151, 33);
             tbxUser.TabIndex = 2;
@@ -60,7 +60,7 @@
             // tbxPass
             // 
             tbxPass.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxPass.Location = new Point(110, 137);
+            tbxPass.Location = new Point(125, 139);
             tbxPass.Name = "tbxPass";
             tbxPass.Size = new Size(151, 33);
             tbxPass.TabIndex = 3;
@@ -69,7 +69,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(6, 96);
+            label1.Location = new Point(21, 98);
             label1.Name = "label1";
             label1.Size = new Size(101, 25);
             label1.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 140);
+            label2.Location = new Point(21, 142);
             label2.Name = "label2";
             label2.Size = new Size(95, 25);
             label2.TabIndex = 5;
@@ -98,23 +98,24 @@
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
-            // btnNewAcc
+            // btnCreateAcc
             // 
-            btnNewAcc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnNewAcc.Location = new Point(32, 356);
-            btnNewAcc.Name = "btnNewAcc";
-            btnNewAcc.Size = new Size(229, 21);
-            btnNewAcc.TabIndex = 7;
-            btnNewAcc.Text = "CREATE ACCOUNT";
-            btnNewAcc.UseVisualStyleBackColor = true;
-            btnNewAcc.Click += btnNewAcc_Click;
+            btnCreateAcc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCreateAcc.Location = new Point(32, 356);
+            btnCreateAcc.Name = "btnCreateAcc";
+            btnCreateAcc.Size = new Size(229, 21);
+            btnCreateAcc.TabIndex = 7;
+            btnCreateAcc.Text = "CREATE ACCOUNT";
+            btnCreateAcc.UseVisualStyleBackColor = true;
+            btnCreateAcc.Click += btnNewAcc_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(310, 426);
-            Controls.Add(btnNewAcc);
+            Controls.Add(btnCreateAcc);
             Controls.Add(btnLogin);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -123,7 +124,8 @@
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,6 +138,6 @@
         private Label label1;
         private Label label2;
         private Button btnLogin;
-        private Button btnNewAcc;
+        private Button btnCreateAcc;
     }
 }

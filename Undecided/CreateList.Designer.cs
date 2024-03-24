@@ -66,6 +66,7 @@
             btnCreateList.TabIndex = 4;
             btnCreateList.Text = "Create List";
             btnCreateList.UseVisualStyleBackColor = true;
+            btnCreateList.Click += btnCreateList_Click;
             // 
             // btnReturn
             // 

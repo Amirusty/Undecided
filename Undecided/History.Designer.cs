@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "History";
+            btnReturn = new Button();
+            SuspendLayout();
+            // 
+            // btnReturn
+            // 
+            btnReturn.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
+            btnReturn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReturn.Location = new Point(800, 12);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(116, 69);
+            btnReturn.TabIndex = 7;
+            btnReturn.Text = "Return to Main Menu";
+            btnReturn.UseVisualStyleBackColor = true;
+            btnReturn.Click += btnReturn_Click;
+            // 
+            // History
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkSlateGray;
+            ClientSize = new Size(928, 598);
+            Controls.Add(btnReturn);
+            Name = "History";
+            Text = "History";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnReturn;
     }
 }

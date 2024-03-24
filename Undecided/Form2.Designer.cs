@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            btnExit = new Button();
             dgvDatabase = new DataGridView();
             btnReturn = new Button();
             label1 = new Label();
@@ -48,24 +47,14 @@
             // 
             // button1
             // 
-            button1.Location = new Point(789, 12);
+            button1.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            button1.Location = new Point(656, 12);
             button1.Name = "button1";
-            button1.Size = new Size(127, 25);
+            button1.Size = new Size(127, 30);
             button1.TabIndex = 0;
             button1.Text = "Connection test";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
-            // 
-            // btnExit
-            // 
-            btnExit.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
-            btnExit.Location = new Point(789, 534);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(127, 52);
-            btnExit.TabIndex = 1;
-            btnExit.Text = "Exit ";
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += btnExit_Click;
             // 
             // dgvDatabase
             // 
@@ -79,7 +68,7 @@
             // btnReturn
             // 
             btnReturn.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
-            btnReturn.Location = new Point(656, 534);
+            btnReturn.Location = new Point(789, 12);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(127, 52);
             btnReturn.TabIndex = 3;
@@ -92,7 +81,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(689, 53);
+            label1.Location = new Point(689, 272);
             label1.Name = "label1";
             label1.Size = new Size(52, 21);
             label1.TabIndex = 4;
@@ -103,7 +92,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(689, 88);
+            label2.Location = new Point(689, 307);
             label2.Name = "label2";
             label2.Size = new Size(52, 21);
             label2.TabIndex = 5;
@@ -112,7 +101,7 @@
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(747, 50);
+            textBox1.Location = new Point(747, 269);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(169, 29);
             textBox1.TabIndex = 6;
@@ -122,7 +111,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(689, 123);
+            label3.Location = new Point(689, 342);
             label3.Name = "label3";
             label3.Size = new Size(52, 21);
             label3.TabIndex = 7;
@@ -131,7 +120,7 @@
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(747, 85);
+            textBox2.Location = new Point(747, 304);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(169, 29);
             textBox2.TabIndex = 8;
@@ -139,7 +128,7 @@
             // textBox3
             // 
             textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(747, 120);
+            textBox3.Location = new Point(747, 339);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(169, 29);
             textBox3.TabIndex = 9;
@@ -147,7 +136,7 @@
             // textBox4
             // 
             textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(747, 155);
+            textBox4.Location = new Point(747, 374);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(169, 29);
             textBox4.TabIndex = 10;
@@ -157,7 +146,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(689, 158);
+            label4.Location = new Point(689, 377);
             label4.Name = "label4";
             label4.Size = new Size(52, 21);
             label4.TabIndex = 11;
@@ -166,7 +155,7 @@
             // button2
             // 
             button2.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
-            button2.Location = new Point(656, 468);
+            button2.Location = new Point(656, 75);
             button2.Name = "button2";
             button2.Size = new Size(85, 48);
             button2.TabIndex = 12;
@@ -176,7 +165,7 @@
             // button3
             // 
             button3.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
-            button3.Location = new Point(747, 468);
+            button3.Location = new Point(747, 75);
             button3.Name = "button3";
             button3.Size = new Size(79, 48);
             button3.TabIndex = 13;
@@ -186,7 +175,7 @@
             // button4
             // 
             button4.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
-            button4.Location = new Point(832, 468);
+            button4.Location = new Point(832, 75);
             button4.Name = "button4";
             button4.Size = new Size(84, 48);
             button4.TabIndex = 14;
@@ -212,11 +201,10 @@
             Controls.Add(label1);
             Controls.Add(btnReturn);
             Controls.Add(dgvDatabase);
-            Controls.Add(btnExit);
             Controls.Add(button1);
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Database";
+            Text = "ViewLists";
             ((System.ComponentModel.ISupportInitialize)dgvDatabase).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -225,7 +213,6 @@
         #endregion
 
         private Button button1;
-        private Button btnExit;
         private DataGridView dgvDatabase;
         private Button btnReturn;
         private Label label1;

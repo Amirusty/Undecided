@@ -38,11 +38,7 @@ namespace Undecided
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Form4 form = new Form4();

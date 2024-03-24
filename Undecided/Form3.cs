@@ -20,12 +20,12 @@ namespace Undecided
             InitializeComponent();
         }
         OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\Documents\\UserLogin.mdb");
-        OleDbDataAdapter ? da;
+        OleDbDataAdapter? da;
         OleDbCommand? cmd;
         DataSet? ds;
         private void btnCreateNewAcc_Click(object sender, EventArgs e)
         {
-            // Assuming 'myConn' is the existing OleDbConnection object
+
             string query = "INSERT INTO [User] (Username, [Password]) VALUES (@UserName, @Pass)";
 
             using (OleDbCommand cmd = new OleDbCommand(query, myConn))
@@ -34,7 +34,7 @@ namespace Undecided
                 {
                     myConn.Open();
 
-                    // Check if the username already exists
+                    // Check if  username already exists
                     string checkQuery = "SELECT COUNT(*) FROM [User] WHERE Username = @UserName";
                     using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, myConn))
                     {
@@ -77,6 +77,11 @@ namespace Undecided
             frm.Show();
             this.Close();
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

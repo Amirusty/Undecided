@@ -24,7 +24,7 @@ namespace Undecided
         int indexRow;
         //private void button1_Click(object sender, EventArgs e)
         //{
-            
+
         //}
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -41,6 +41,13 @@ namespace Undecided
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Form4 form = new Form4();
+            form.Show();
+            this.Close();
         }
     }
 }

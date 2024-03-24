@@ -100,6 +100,7 @@
             // 
             // btnCreateAcc
             // 
+            btnCreateAcc.BackgroundImage = Properties.Resources.wallhaven_3lg6ld_1920x1080;
             btnCreateAcc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCreateAcc.Location = new Point(32, 356);
             btnCreateAcc.Name = "btnCreateAcc";

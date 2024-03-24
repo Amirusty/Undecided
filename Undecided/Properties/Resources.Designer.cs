@@ -83,6 +83,36 @@ namespace Undecided.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_3lg6ld_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-3lg6ld_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_5g6mg1_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-5g6mg1_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_p2xv7p_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-p2xv7p_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wp8281688_suisei_hoshimachi_wallpapers {
             get {
                 object obj = ResourceManager.GetObject("wp8281688-suisei-hoshimachi-wallpapers", resourceCulture);

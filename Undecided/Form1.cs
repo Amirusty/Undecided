@@ -6,25 +6,28 @@ using System.Data;
 
 
 
+
 namespace Undecided
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
-            
+
+
         }
+
         OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\Documents\\UserLogin.mdb");
-        OleDbDataAdapter? da;
+        
         OleDbCommand? cmd;
-        DataSet? ds;
+        
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-        
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -44,8 +47,8 @@ namespace Undecided
                     {
                         // If user exists, close current form and open Form2
                         this.Hide(); // Hide the current form instead of closing it
-                        Form2 form2 = new Form2();
-                        form2.Show();
+                        Form4 form4 = new Form4();
+                        form4.Show();
                     }
                     else
                     {
@@ -59,7 +62,7 @@ namespace Undecided
             }
             finally
             {
-                myConn.Close(); 
+                myConn.Close();
             }
         }
 
@@ -83,5 +86,7 @@ namespace Undecided
             List<int> lists = new List<int>();
 
         }
+
+        
     }
 }

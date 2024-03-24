@@ -35,6 +35,7 @@
             tbxNewUser = new TextBox();
             btnCreateNewAcc = new Button();
             btnReturn = new Button();
+            btnExit = new Button();
             SuspendLayout();
             // 
             // label1
@@ -88,7 +89,7 @@
             btnCreateNewAcc.BackColor = Color.LightSeaGreen;
             btnCreateNewAcc.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnCreateNewAcc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCreateNewAcc.Location = new Point(28, 252);
+            btnCreateNewAcc.Location = new Point(28, 321);
             btnCreateNewAcc.Name = "btnCreateNewAcc";
             btnCreateNewAcc.Size = new Size(255, 46);
             btnCreateNewAcc.TabIndex = 10;
@@ -98,13 +99,23 @@
             // 
             // btnReturn
             // 
-            btnReturn.Location = new Point(12, 373);
+            btnReturn.Location = new Point(29, 373);
             btnReturn.Name = "btnReturn";
-            btnReturn.Size = new Size(100, 41);
+            btnReturn.Size = new Size(121, 41);
             btnReturn.TabIndex = 11;
             btnReturn.Text = "Go back";
             btnReturn.UseVisualStyleBackColor = true;
             btnReturn.Click += btnReturn_Click;
+            // 
+            // btnExit
+            // 
+            btnExit.Location = new Point(156, 373);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(127, 41);
+            btnExit.TabIndex = 12;
+            btnExit.Text = "Exit";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // Form3
             // 
@@ -112,6 +123,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(310, 426);
+            Controls.Add(btnExit);
             Controls.Add(btnReturn);
             Controls.Add(btnCreateNewAcc);
             Controls.Add(label2);
@@ -135,5 +147,6 @@
         private TextBox tbxNewUser;
         private Button btnCreateNewAcc;
         private Button btnReturn;
+        private Button btnExit;
     }
 }

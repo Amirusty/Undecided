@@ -51,6 +51,7 @@
             ClientSize = new Size(928, 598);
             Controls.Add(btnReturn);
             Name = "OpenList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OpenList";
             ResumeLayout(false);
         }

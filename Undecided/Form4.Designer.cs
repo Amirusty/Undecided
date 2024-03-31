@@ -34,13 +34,15 @@
             btnCreate = new Button();
             btnSearch = new Button();
             btnOpen = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // btnShow
             // 
-            btnShow.Location = new Point(63, 150);
+            btnShow.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnShow.Location = new Point(63, 209);
             btnShow.Name = "btnShow";
-            btnShow.Size = new Size(211, 53);
+            btnShow.Size = new Size(211, 44);
             btnShow.TabIndex = 0;
             btnShow.Text = "View all Lists";
             btnShow.UseVisualStyleBackColor = true;
@@ -48,6 +50,7 @@
             // 
             // btnExit
             // 
+            btnExit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Location = new Point(63, 359);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(211, 44);
@@ -58,7 +61,8 @@
             // 
             // btnHistory
             // 
-            btnHistory.Location = new Point(63, 259);
+            btnHistory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHistory.Location = new Point(63, 309);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(211, 44);
             btnHistory.TabIndex = 2;
@@ -68,7 +72,8 @@
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(63, 50);
+            btnCreate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCreate.Location = new Point(63, 109);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(211, 44);
             btnCreate.TabIndex = 3;
@@ -78,7 +83,8 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(63, 209);
+            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(63, 259);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(211, 44);
             btnSearch.TabIndex = 3;
@@ -88,7 +94,8 @@
             // 
             // btnOpen
             // 
-            btnOpen.Location = new Point(63, 100);
+            btnOpen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOpen.Location = new Point(63, 159);
             btnOpen.Name = "btnOpen";
             btnOpen.Size = new Size(211, 44);
             btnOpen.TabIndex = 4;
@@ -96,12 +103,22 @@
             btnOpen.UseVisualStyleBackColor = true;
             btnOpen.Click += btnOpen_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(132, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(88, 15);
+            label1.TabIndex = 5;
+            label1.Text = "insert icon here";
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(341, 464);
+            Controls.Add(label1);
             Controls.Add(btnOpen);
             Controls.Add(btnSearch);
             Controls.Add(btnCreate);
@@ -113,6 +130,7 @@
             Text = "Main menu";
             Load += Form4_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -123,5 +141,6 @@
         private Button btnCreate;
         private Button btnSearch;
         private Button btnOpen;
+        private Label label1;
     }
 }

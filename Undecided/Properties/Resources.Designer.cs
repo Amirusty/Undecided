@@ -83,6 +83,96 @@ namespace Undecided.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cart {
+            get {
+                object obj = ResourceManager.GetObject("cart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cart_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("cart-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap La_mujer_sostiene_un_bolso_de_compras_de_moda_y_belleza____Foto_Gratis {
+            get {
+                object obj = ResourceManager.GetObject("La mujer sostiene un bolso de compras de moda y belleza_ _ Foto Gratis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap La_mujer_sostiene_un_bolso_de_compras_de_moda_y_belleza____Foto_Gratis1 {
+            get {
+                object obj = ResourceManager.GetObject("La mujer sostiene un bolso de compras de moda y belleza_ _ Foto Gratis1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_1105049_640 {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-1105049_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_1105049_640__1_ {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-1105049_640 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_1105049_6401 {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-1105049_6401", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_0j6plp_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-0j6plp_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_0j6plp_1920x10801 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-0j6plp_1920x10801", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wallhaven_3lg6ld_1920x1080 {
             get {
                 object obj = ResourceManager.GetObject("wallhaven-3lg6ld_1920x1080", resourceCulture);
@@ -96,6 +186,26 @@ namespace Undecided.Properties {
         internal static System.Drawing.Bitmap wallhaven_5g6mg1_1920x1080 {
             get {
                 object obj = ResourceManager.GetObject("wallhaven-5g6mg1_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_72yzje_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-72yzje_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallhaven_72yzje_1920x10801 {
+            get {
+                object obj = ResourceManager.GetObject("wallhaven-72yzje_1920x10801", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

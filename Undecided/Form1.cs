@@ -19,7 +19,7 @@ namespace Undecided
 
         }
 
-        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\Documents\\UserLogin.mdb");
+        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\sonia cogtas\\source\\repos\\Undecided\\Databases\\UserLogin.mdb");
         
         OleDbCommand? cmd;
         
@@ -32,7 +32,7 @@ namespace Undecided
         {
             try
             {
-                // Assuming 'myConn' is the existing OleDbConnection object
+                
                 string query = "SELECT COUNT(*) FROM [User] WHERE Username = @UserName AND [Password] = @Pass";
                 using (cmd = new OleDbCommand(query, myConn))
                 {
@@ -45,8 +45,8 @@ namespace Undecided
 
                     if (count > 0)
                     {
-                        // If user exists, close current form and open Form2
-                        this.Hide(); // Hide the current form instead of closing it
+                        
+                        this.Hide(); 
                         Form4 form4 = new Form4();
                         form4.Show();
                     }

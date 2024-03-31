@@ -34,7 +34,7 @@ namespace Undecided
                 {
                     myConn.Open();
 
-                    // Check if  username already exists
+                    
                     string checkQuery = "SELECT COUNT(*) FROM [User] WHERE Username = @UserName";
                     using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, myConn))
                     {
@@ -48,11 +48,11 @@ namespace Undecided
                         }
                     }
 
-                    // Add parameters for the insert query
+                    
                     cmd.Parameters.AddWithValue("@UserName", tbxNewUser.Text);
                     cmd.Parameters.AddWithValue("@Pass", tbxNewPass.Text);
 
-                    // Execute the insert query
+                    
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)

@@ -22,7 +22,7 @@ namespace Undecided
         {
             InitializeComponent();
 
-            // Initialize OleDb objects
+            
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
             da = new OleDbDataAdapter();
             ds = new DataSet();
@@ -144,6 +144,7 @@ namespace Undecided
             }
             finally
             {
+                ClearTextBox();
                 myConn.Close();
             }
         }
@@ -163,7 +164,7 @@ namespace Undecided
                     {
                         int selectedID = Convert.ToInt32(dgvNewList.SelectedRows[0].Cells["ID"].Value);
 
-                        // Construct the delete query
+                        
                         string deleteQuery = $"DELETE FROM [{listName}] WHERE ID = @ID";
                         OleDbCommand deleteCmd = new OleDbCommand(deleteQuery, myConn);
                         deleteCmd.Parameters.AddWithValue("@ID", selectedID);
@@ -189,14 +190,56 @@ namespace Undecided
             }
             finally
             {
+                ClearTextBox();
                 myConn.Close();
             }
         }
 
-    
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvNewList.SelectedRows.Count > 0)
+            {
+                int selectedID = Convert.ToInt32(dgvNewList.SelectedRows[0].Cells["ID"].Value);
+                string listName = tbxNewList.Text;
+                string itemName = tbxItem.Text;
+                int quantity = Convert.ToInt32(tbxQuantity.Text);
+                decimal price = Convert.ToDecimal(tbxPrice.Text);
+                decimal subtotal = quantity * price;
+
+                
+                string query = $"UPDATE [{listName}] SET item_name = @ItemName, " +
+                                $"item_quantity = @Quantity, " +
+                                $"item_price = @Price, " +
+                                $"subtotal = @Subtotal " +
+                $"WHERE ID = @ID";
+                OleDbCommand cmd = new OleDbCommand(query, myConn);
+                cmd.Parameters.AddWithValue("@ItemName", itemName);
+                cmd.Parameters.AddWithValue("@Quantity", quantity);
+                cmd.Parameters.AddWithValue("@Price", price);
+                cmd.Parameters.AddWithValue("@Subtotal", subtotal);
+                cmd.Parameters.AddWithValue("@ID", selectedID);
+                myConn.Open();
+                cmd.ExecuteNonQuery();
+
+                RefreshDgv();
+                myConn.Close();
+                ClearTextBox();
+                MessageBox.Show("Item updated successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Please select the row to update.");
+            }
+        }
+        private void ClearTextBox()
+        {
+            tbxItem.Text = "";
+            tbxPrice.Text = "";
+            tbxQuantity.Text = "";
+        }
     }
 
-        
-    
+
+
 }
 

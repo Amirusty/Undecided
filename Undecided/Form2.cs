@@ -61,10 +61,11 @@ namespace Undecided
         {
             try
             {
+                dgvLists.Visible = false;
                 myConn.Open();
 
 
-                DataTable schemaTable = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                DataTable schemaTable = myConn.GetSchema("Tables");
 
                 cbxListNames.Items.Clear();
 
@@ -72,7 +73,11 @@ namespace Undecided
                 foreach (DataRow row in schemaTable.Rows)
                 {
                     string tableName = row["TABLE_NAME"].ToString();
-                    cbxListNames.Items.Add(tableName);
+
+                    if (!tableName.StartsWith("MSys"))
+                    {
+                        cbxListNames.Items.Add(tableName);
+                    }
                 }
             }
             catch (Exception ex)
@@ -84,7 +89,7 @@ namespace Undecided
                 myConn.Close();
                 tbxListName.Text = null;
                 cbxListNames.SelectedIndex = 0;
-                dgvLists.Rows.Clear();
+
             }
         }
         private void btnCreate_Click(object sender, EventArgs e)
@@ -146,33 +151,39 @@ namespace Undecided
         private void btnLoadList_Click(object sender, EventArgs e)
         {
             dgvLists.Visible = true;
+            try
+            {
+                RefreshDgv();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                myConn.Close();
+                RefreshPage();
+            }
+
+        }
+        private void RefreshDgv()
+        {
+            string listName = cbxListNames.SelectedItem?.ToString();
+
+            da = new OleDbDataAdapter($"SELECT *FROM {listName}", myConn);
+            ds = new DataSet();
             myConn.Open();
+            da.Fill(ds, listName);
+            dgvLists.DataSource = ds.Tables[listName];
+            myConn.Close();
+        }
 
-            
-            string tableName = tbxListName.Text;
-
-            if (!string.IsNullOrWhiteSpace(tableName))
-            {
-                
-                string selectQuery = $"SELECT * FROM [{tableName}]";
-
-                
-                da = new OleDbDataAdapter(selectQuery, myConn);
-                ds = new DataSet();
-                da.Fill(ds, tableName);
-
-                
-                dgvLists.Rows.Clear();
-
-               
-               
-            }
-            else
-            {
-                MessageBox.Show("Please enter a table name.");
-            }
-            myConn.Close(); 
-            RefreshPage();
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            OpenList openList = new OpenList();
+            openList.Show();
+            this.Close();
         }
     }
 }

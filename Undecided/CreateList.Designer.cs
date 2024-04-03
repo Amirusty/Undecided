@@ -190,6 +190,7 @@
             btnUpdate.TabIndex = 16;
             btnUpdate.Text = "Update item";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // CreateList
             // 

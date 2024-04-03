@@ -104,6 +104,7 @@
             btnUpdate.TabIndex = 14;
             btnUpdate.Text = "Update List";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnLoad
             // 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 
 
-
+//Change code sa location amiel pls tan awa ni - Grant
 
 namespace Undecided
 {
@@ -19,7 +19,7 @@ namespace Undecided
 
         }
 
-        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\sonia cogtas\\source\\repos\\Undecided\\Databases\\UserLogin.mdb");
+        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\UserLogin.mdb");
         
         OleDbCommand? cmd;
         
@@ -47,7 +47,7 @@ namespace Undecided
                     {
                         
                         this.Hide(); 
-                        Form4 form4 = new Form4();
+                        MainMenu form4 = new MainMenu();
                         form4.Show();
                     }
                     else

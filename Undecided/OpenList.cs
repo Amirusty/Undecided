@@ -19,7 +19,7 @@ namespace Undecided
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
+            MainMenu form4 = new MainMenu();
             form4.Show();
             this.Close();
         }

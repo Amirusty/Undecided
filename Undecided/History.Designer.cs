@@ -51,6 +51,7 @@
             ClientSize = new Size(928, 598);
             Controls.Add(btnReturn);
             Name = "History";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "History";
             ResumeLayout(false);
         }

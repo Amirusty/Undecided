@@ -1,6 +1,6 @@
 ﻿namespace Undecided
 {
-    partial class Form2
+    partial class ViewLists
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,9 @@
             btnLoad = new Button();
             btnDelete = new Button();
             dgvLists = new DataGridView();
+            cbxListNames = new ComboBox();
+            label2 = new Label();
+            btnLoadList = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvLists).BeginInit();
             SuspendLayout();
             // 
@@ -67,7 +70,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(657, 184);
+            label1.Location = new Point(657, 248);
             label1.Name = "label1";
             label1.Size = new Size(80, 21);
             label1.TabIndex = 4;
@@ -76,7 +79,7 @@
             // tbxListName
             // 
             tbxListName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxListName.Location = new Point(735, 181);
+            tbxListName.Location = new Point(735, 245);
             tbxListName.Name = "tbxListName";
             tbxListName.Size = new Size(181, 29);
             tbxListName.TabIndex = 6;
@@ -133,12 +136,47 @@
             dgvLists.Size = new Size(639, 574);
             dgvLists.TabIndex = 18;
             // 
-            // Form2
+            // cbxListNames
+            // 
+            cbxListNames.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxListNames.FormattingEnabled = true;
+            cbxListNames.Location = new Point(697, 167);
+            cbxListNames.Name = "cbxListNames";
+            cbxListNames.Size = new Size(181, 29);
+            cbxListNames.TabIndex = 19;
+            cbxListNames.SelectedIndexChanged += cbxListNames_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(742, 143);
+            label2.Name = "label2";
+            label2.Size = new Size(87, 21);
+            label2.TabIndex = 20;
+            label2.Text = "List names:";
+            // 
+            // btnLoadList
+            // 
+            btnLoadList.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            btnLoadList.Location = new Point(832, 280);
+            btnLoadList.Name = "btnLoadList";
+            btnLoadList.Size = new Size(84, 48);
+            btnLoadList.TabIndex = 21;
+            btnLoadList.Text = "Load List";
+            btnLoadList.UseVisualStyleBackColor = true;
+            btnLoadList.Click += btnLoadList_Click;
+            // 
+            // ViewLists
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateGray;
             ClientSize = new Size(928, 598);
+            Controls.Add(btnLoadList);
+            Controls.Add(label2);
+            Controls.Add(cbxListNames);
             Controls.Add(dgvLists);
             Controls.Add(btnDelete);
             Controls.Add(btnLoad);
@@ -148,7 +186,7 @@
             Controls.Add(label1);
             Controls.Add(btnReturn);
             Controls.Add(button1);
-            Name = "Form2";
+            Name = "ViewLists";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ViewLists";
             ((System.ComponentModel.ISupportInitialize)dgvLists).EndInit();
@@ -167,5 +205,8 @@
         private Button btnLoad;
         private Button btnDelete;
         private DataGridView dgvLists;
+        private ComboBox cbxListNames;
+        private Label label2;
+        private Button btnLoadList;
     }
 }

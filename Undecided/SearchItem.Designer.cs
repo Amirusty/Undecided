@@ -51,6 +51,7 @@
             ClientSize = new Size(928, 598);
             Controls.Add(btnReturn);
             Name = "SearchItem";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SearchItem";
             ResumeLayout(false);
         }

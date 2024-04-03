@@ -1,6 +1,6 @@
 ﻿namespace Undecided
 {
-    partial class Form4
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             btnSearch = new Button();
             btnOpen = new Button();
             label1 = new Label();
+            btnSched = new Button();
             SuspendLayout();
             // 
             // btnShow
@@ -51,7 +52,7 @@
             // btnExit
             // 
             btnExit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExit.Location = new Point(63, 359);
+            btnExit.Location = new Point(63, 409);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(211, 44);
             btnExit.TabIndex = 1;
@@ -62,7 +63,7 @@
             // btnHistory
             // 
             btnHistory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHistory.Location = new Point(63, 309);
+            btnHistory.Location = new Point(63, 359);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(211, 44);
             btnHistory.TabIndex = 2;
@@ -112,12 +113,23 @@
             label1.TabIndex = 5;
             label1.Text = "insert icon here";
             // 
-            // Form4
+            // btnSched
+            // 
+            btnSched.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSched.Location = new Point(63, 309);
+            btnSched.Name = "btnSched";
+            btnSched.Size = new Size(211, 44);
+            btnSched.TabIndex = 6;
+            btnSched.Text = "Schedules";
+            btnSched.UseVisualStyleBackColor = true;
+            // 
+            // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumSeaGreen;
             ClientSize = new Size(341, 464);
+            Controls.Add(btnSched);
             Controls.Add(label1);
             Controls.Add(btnOpen);
             Controls.Add(btnSearch);
@@ -125,7 +137,7 @@
             Controls.Add(btnHistory);
             Controls.Add(btnExit);
             Controls.Add(btnShow);
-            Name = "Form4";
+            Name = "MainMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main menu";
             Load += Form4_Load;
@@ -142,5 +154,6 @@
         private Button btnSearch;
         private Button btnOpen;
         private Label label1;
+        private Button btnSched;
     }
 }

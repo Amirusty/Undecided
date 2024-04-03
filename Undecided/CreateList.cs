@@ -23,14 +23,14 @@ namespace Undecided
             InitializeComponent();
 
             // Initialize OleDb objects
-            myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\sonia cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
+            myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
             da = new OleDbDataAdapter();
             ds = new DataSet();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Form4 frm = new Form4();
+            MainMenu frm = new MainMenu();
             frm.Show();
             this.Close();
         }
@@ -51,7 +51,8 @@ namespace Undecided
                     string CreateListQuery = $"CREATE TABLE [{listName}] (ID AUTOINCREMENT PRIMARY KEY," +
                                      $"item_name TEXT, " +
                                      $"item_quantity INT, " +
-                                     $"item_price CURRENCY)";
+                                     $"item_price CURRENCY," +
+                                     $"subtotal CURRENCY)";
                     OleDbCommand cmd = new OleDbCommand(CreateListQuery, myConn);
                     cmd.ExecuteNonQuery();
 
@@ -93,7 +94,7 @@ namespace Undecided
                 tbxPrice.Text = row.Cells["item_price"].Value.ToString();
             }
         }
-        private void RefreshDataGridView()
+        private void RefreshDgv()
         {
             string listName = tbxNewList.Text;
             string selectQuery = $"SELECT * FROM [{listName}]";
@@ -112,22 +113,23 @@ namespace Undecided
 
                 if (!string.IsNullOrWhiteSpace(listName))
                 {
-                    // Get item details from text boxes or other input controls
                     string itemName = tbxItem.Text;
                     int quantity = Convert.ToInt32(tbxQuantity.Text);
                     decimal price = Convert.ToDecimal(tbxPrice.Text);
+                    int subtotal_int = quantity * (Convert.ToInt32(tbxPrice.Text));
+                    decimal subtotal = Convert.ToDecimal(subtotal_int);
 
-                    // Insert the new item into the table
-                    string insertQuery = $"INSERT INTO [{listName}] (item_name, item_quantity, item_price) " +
-                                         $"VALUES (@ItemName, @Quantity, @Price)";
+                    string insertQuery = $"INSERT INTO [{listName}] (item_name, item_quantity, item_price, subtotal) " +
+                                         $"VALUES (@ItemName, @Quantity, @Price,@Subtotal)";
                     OleDbCommand insertCmd = new OleDbCommand(insertQuery, myConn);
                     insertCmd.Parameters.AddWithValue("@ItemName", itemName);
                     insertCmd.Parameters.AddWithValue("@Quantity", quantity);
                     insertCmd.Parameters.AddWithValue("@Price", price);
+                    insertCmd.Parameters.AddWithValue("@Subtotal", subtotal);
                     insertCmd.ExecuteNonQuery();
 
-                    // Refresh the DataGridView to reflect the changes
-                    RefreshDataGridView();
+
+                    RefreshDgv();
 
                     MessageBox.Show("Item added successfully.");
                 }
@@ -146,7 +148,7 @@ namespace Undecided
             }
         }
 
-        // Button click event handler to delete an item
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -157,19 +159,24 @@ namespace Undecided
 
                 if (!string.IsNullOrWhiteSpace(listName))
                 {
-                    // Get the ID of the selected item from the DataGridView
-                    int selectedID = Convert.ToInt32(dgvNewList.SelectedRows[0].Cells["ID"].Value);
+                    if (dgvNewList.SelectedRows.Count > 0)
+                    {
+                        int selectedID = Convert.ToInt32(dgvNewList.SelectedRows[0].Cells["ID"].Value);
 
-                    // Delete the item from the table
-                    string deleteQuery = $"DELETE FROM [{listName}] WHERE ID = @ID";
-                    OleDbCommand deleteCmd = new OleDbCommand(deleteQuery, myConn);
-                    deleteCmd.Parameters.AddWithValue("@ID", selectedID);
-                    deleteCmd.ExecuteNonQuery();
+                        // Construct the delete query
+                        string deleteQuery = $"DELETE FROM [{listName}] WHERE ID = @ID";
+                        OleDbCommand deleteCmd = new OleDbCommand(deleteQuery, myConn);
+                        deleteCmd.Parameters.AddWithValue("@ID", selectedID);
+                        deleteCmd.ExecuteNonQuery();
 
-                    // Refresh the DataGridView to reflect the changes
-                    RefreshDataGridView();
+                        RefreshDgv();
 
-                    MessageBox.Show("Item deleted successfully.");
+                        MessageBox.Show("Item deleted successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a row to delete.");
+                    }
                 }
                 else
                 {
@@ -185,6 +192,11 @@ namespace Undecided
                 myConn.Close();
             }
         }
+
+    
     }
+
+        
+    
 }
 

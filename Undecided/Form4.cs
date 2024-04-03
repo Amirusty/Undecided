@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Undecided
 {
-    public partial class Form4 : Form
+    public partial class MainMenu : Form
     {
-        public Form4()
+        public MainMenu()
         {
             InitializeComponent();
             
@@ -20,7 +20,7 @@ namespace Undecided
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
+            ViewLists form = new ViewLists();
             form.Show();
             this.Close();
         }

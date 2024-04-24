@@ -222,7 +222,10 @@ namespace Undecided
                         dgvList.DataSource = dt;
                         dgvList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         dgvList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        dgvList.Columns[columnName].Visible = false; 
+                        if (dgvList.Columns.Contains(columnName))
+                        {
+                            dgvList.Columns[columnName].Visible = false;
+                        }
                         break;
                     }
                 }

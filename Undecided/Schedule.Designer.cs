@@ -77,7 +77,7 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.calendar;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(46, 31);
+            pictureBox1.Location = new Point(35, 32);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(158, 160);
             pictureBox1.TabIndex = 13;
@@ -98,7 +98,7 @@
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(211, 50);
             btnCreate.TabIndex = 10;
-            btnCreate.Text = "Create Schedule";
+            btnCreate.Text = "Calendar";
             btnCreate.UseVisualStyleBackColor = true;
             btnCreate.Click += btnCreate_Click;
             // 

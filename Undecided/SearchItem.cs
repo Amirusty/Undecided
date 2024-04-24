@@ -90,39 +90,34 @@ namespace Undecided
                     string tableName = table["TABLE_NAME"].ToString();
                     if (tableName.Substring(0, 4) != "MSys")
                     {
-                        OleDbCommand cmd = new OleDbCommand("SELECT * FROM [" + tableName + "]", myConn);
+                        OleDbCommand cmd = new OleDbCommand($"SELECT * FROM [{tableName}]", myConn);
                         OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
 
-                        if (dt.Columns.Contains(userColumnName))
+                        if (dt.Columns.Contains(userColumnName) && dt.Columns.Contains("item_name"))
                         {
-                            if (dt.Columns.Contains("item_name"))
+                            foreach (DataRow row in dt.Rows)
                             {
-                                foreach (DataRow row in dt.Rows)
+                                if (row["item_name"].ToString() == itemToFind)
                                 {
-                                    if (row["item_name"].ToString() == itemToFind)
-                                    {
-                                        cbxListNames.Items.Add(tableName);
-                                        n++;
-                                        break;
-                                    }
+                                    cbxListNames.Items.Add(tableName);
+                                    n++;
+                                    break;
                                 }
                             }
                         }
                     }
-                    if (n > 0)
-                    {
-                        MessageBox.Show("Item found!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item not found!");
-                    }
-
+                }
+                if (n > 0)
+                {
+                    MessageBox.Show("Item found!");
+                }
+                else
+                {
+                    MessageBox.Show("Item not found!");
                 }
 
-                
             }
             catch (Exception e)
             {

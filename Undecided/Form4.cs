@@ -36,12 +36,7 @@ namespace Undecided
             Application.Exit();
         }
 
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
 
-            History history = new History();
-            ShowPageInPanel(history);
-        }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -59,7 +54,7 @@ namespace Undecided
 
         private void Form4_Load(object sender, EventArgs e)
         {
-
+            label1.Text = $"Currently logged in as {UserName}";
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -124,7 +119,13 @@ namespace Undecided
         private void btnSearch_Click(object sender, EventArgs e)
         {
             SearchItem searchItem = new SearchItem();
-            ShowPageInPanel(searchItem); 
+            ShowPageInPanel(searchItem);
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports();
+            reports.Show();
         }
     }
 }

@@ -123,6 +123,16 @@ namespace Undecided.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap La_mujer_sostiene_un_bolso_de_compras_de_moda_y_belleza____Foto_Gratis {
             get {
                 object obj = ResourceManager.GetObject("La mujer sostiene un bolso de compras de moda y belleza_ _ Foto Gratis", resourceCulture);
@@ -156,6 +166,16 @@ namespace Undecided.Properties {
         internal static System.Drawing.Bitmap list {
             get {
                 object obj = ResourceManager.GetObject("list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_no_background {
+            get {
+                object obj = ResourceManager.GetObject("logo-no-background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +266,16 @@ namespace Undecided.Properties {
         internal static System.Drawing.Bitmap shopping_list {
             get {
                 object obj = ResourceManager.GetObject("shopping-list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap store {
+            get {
+                object obj = ResourceManager.GetObject("store", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

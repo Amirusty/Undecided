@@ -32,12 +32,13 @@
             tbxName = new TextBox();
             label2 = new Label();
             dtpDate = new DateTimePicker();
-            cbxList = new ComboBox();
+            cbxListNames = new ComboBox();
             label3 = new Label();
             label4 = new Label();
             btnCreateSched = new Button();
             btnReturn = new Button();
             cbxLocation = new ComboBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // label1
@@ -78,14 +79,14 @@
             dtpDate.Size = new Size(273, 29);
             dtpDate.TabIndex = 4;
             // 
-            // cbxList
+            // cbxListNames
             // 
-            cbxList.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxList.FormattingEnabled = true;
-            cbxList.Location = new Point(194, 108);
-            cbxList.Name = "cbxList";
-            cbxList.Size = new Size(273, 29);
-            cbxList.TabIndex = 5;
+            cbxListNames.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxListNames.FormattingEnabled = true;
+            cbxListNames.Location = new Point(194, 108);
+            cbxListNames.Name = "cbxListNames";
+            cbxListNames.Size = new Size(273, 29);
+            cbxListNames.TabIndex = 5;
             // 
             // label3
             // 
@@ -113,7 +114,7 @@
             // 
             btnCreateSched.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnCreateSched.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCreateSched.Location = new Point(353, 521);
+            btnCreateSched.Location = new Point(321, 553);
             btnCreateSched.Name = "btnCreateSched";
             btnCreateSched.Size = new Size(146, 69);
             btnCreateSched.TabIndex = 8;
@@ -125,7 +126,7 @@
             // 
             btnReturn.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnReturn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReturn.Location = new Point(12, 521);
+            btnReturn.Location = new Point(12, 558);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(146, 69);
             btnReturn.TabIndex = 9;
@@ -141,19 +142,28 @@
             cbxLocation.Name = "cbxLocation";
             cbxLocation.Size = new Size(273, 29);
             cbxLocation.TabIndex = 10;
+            cbxLocation.SelectedIndexChanged += cbxLocation_SelectedIndexChanged;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(501, 12);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(472, 615);
+            flowLayoutPanel1.TabIndex = 11;
             // 
             // CreateSchedule
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateGray;
-            ClientSize = new Size(511, 602);
+            ClientSize = new Size(982, 634);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(cbxLocation);
             Controls.Add(btnReturn);
             Controls.Add(btnCreateSched);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(cbxList);
+            Controls.Add(cbxListNames);
             Controls.Add(dtpDate);
             Controls.Add(label2);
             Controls.Add(tbxName);
@@ -161,6 +171,7 @@
             Name = "CreateSchedule";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateSchedule";
+            Load += CreateSchedule_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -171,11 +182,12 @@
         private TextBox tbxName;
         private Label label2;
         private DateTimePicker dtpDate;
-        private ComboBox cbxList;
+        private ComboBox cbxListNames;
         private Label label3;
         private Label label4;
         private Button btnCreateSched;
         private Button btnReturn;
         private ComboBox cbxLocation;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -56,6 +56,7 @@
             btnDelete.TabIndex = 12;
             btnDelete.Text = "Delete Schedule";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // panel1
             // 

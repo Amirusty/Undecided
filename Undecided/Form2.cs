@@ -108,19 +108,32 @@ namespace Undecided
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
-            CreateList createList = new CreateList();
-            mainMenu.panel1.Controls.Clear();
-            mainMenu.ShowPageInPanel(createList);
+            MainMenu mainMenu = (MainMenu)Application.OpenForms["MainMenu"];
+            if (mainMenu != null)
+            {
+                mainMenu.panel1.Controls.Clear();
+                CreateList createList = new CreateList();
+                createList.TopLevel = false;
+                createList.Dock = DockStyle.Fill;
+                mainMenu.panel1.Controls.Add(createList);
+                createList.Show();
+            }
 
-            
+
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
-            OpenList open = new OpenList();
-            mainMenu.panel1.Controls.Clear();
-            mainMenu.ShowPageInPanel(open);
+            MainMenu mainMenu = (MainMenu)Application.OpenForms["MainMenu"];
+            if (mainMenu != null)
+            {
+                mainMenu.panel1.Controls.Clear();
+                OpenList open = new OpenList();
+                open.TopLevel = false;
+                open.Dock = DockStyle.Fill;
+                mainMenu.panel1.Controls.Add(open);
+                open.Show();
+            }
+
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {

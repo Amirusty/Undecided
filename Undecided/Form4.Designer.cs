@@ -30,15 +30,19 @@
         {
             btnShow = new Button();
             btnExit = new Button();
-            btnHistory = new Button();
             btnCreate = new Button();
             btnOpen = new Button();
             btnSched = new Button();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             btnLogout = new Button();
             btnSearch = new Button();
+            label1 = new Label();
+            btnReport = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnShow
@@ -64,18 +68,6 @@
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
-            // 
-            // btnHistory
-            // 
-            btnHistory.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnHistory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHistory.Location = new Point(12, 488);
-            btnHistory.Name = "btnHistory";
-            btnHistory.Size = new Size(211, 44);
-            btnHistory.TabIndex = 2;
-            btnHistory.Text = "History";
-            btnHistory.UseVisualStyleBackColor = true;
-            btnHistory.Click += btnHistory_Click;
             // 
             // btnCreate
             // 
@@ -126,11 +118,22 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox2);
             panel1.Location = new Point(237, 15);
             panel1.Name = "panel1";
             panel1.Size = new Size(944, 637);
             panel1.TabIndex = 8;
             panel1.Paint += panel1_Paint;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources.store;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(329, 157);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(341, 294);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
             // btnLogout
             // 
@@ -156,12 +159,35 @@
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.DeepSkyBlue;
+            label1.Location = new Point(12, 637);
+            label1.Name = "label1";
+            label1.Size = new Size(123, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Currently logged in as";
+            // 
+            // btnReport
+            // 
+            btnReport.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
+            btnReport.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReport.Location = new Point(12, 488);
+            btnReport.Name = "btnReport";
+            btnReport.Size = new Size(211, 44);
+            btnReport.TabIndex = 2;
+            btnReport.Text = "Report / Suggestions";
+            btnReport.UseVisualStyleBackColor = true;
+            btnReport.Click += btnReport_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateGray;
             ClientSize = new Size(1183, 656);
+            Controls.Add(label1);
             Controls.Add(btnSearch);
             Controls.Add(btnLogout);
             Controls.Add(panel1);
@@ -169,7 +195,7 @@
             Controls.Add(btnSched);
             Controls.Add(btnOpen);
             Controls.Add(btnCreate);
-            Controls.Add(btnHistory);
+            Controls.Add(btnReport);
             Controls.Add(btnExit);
             Controls.Add(btnShow);
             Name = "MainMenu";
@@ -178,14 +204,16 @@
             FormClosing += MainMenu_FormClosing;
             Load += Form4_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnShow;
         private Button btnExit;
-        private Button btnHistory;
         private Button btnCreate;
         private Button btnOpen;
         private Button btnSched;
@@ -193,5 +221,8 @@
         private Button btnLogout;
         private Button btnSearch;
         public Panel panel1;
+        private Label label1;
+        private PictureBox pictureBox2;
+        private Button btnReport;
     }
 }

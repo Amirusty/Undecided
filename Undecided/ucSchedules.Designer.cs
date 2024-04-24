@@ -49,6 +49,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             checkBox1.Location = new Point(14, 13);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(15, 14);
@@ -100,6 +101,8 @@
             Controls.Add(label1);
             Name = "ucSchedules";
             Size = new Size(588, 150);
+            Load += ucSchedules_Load;
+            Click += ucSchedules_Click;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -107,9 +110,9 @@
         #endregion
 
         private Label label1;
-        private CheckBox checkBox1;
         private Label label2;
         private Label label3;
         private Label label4;
+        public CheckBox checkBox1;
     }
 }

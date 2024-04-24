@@ -14,14 +14,13 @@ namespace Undecided
     public partial class ViewSchedules : Form
     {
         OleDbConnection myConn;
-        OleDbDataAdapter da;
-        DataSet ds;
+
+        public static string User;
         public ViewSchedules()
         {
             InitializeComponent();
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
-            da = new OleDbDataAdapter();
-            ds = new DataSet();
+            User = MainMenu.UserName;
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -33,32 +32,24 @@ namespace Undecided
         {
             try
             {
-
-
-
                 myConn.Open();
-
-
                 OleDbCommand cmd = new OleDbCommand("SELECT * FROM Schedules", myConn);
-                OleDbDataReader reader = cmd.ExecuteReader();
+                OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
 
-
-
-
-                while (reader.Read())
+                foreach (DataRow row in table.Rows)
                 {
-                    ucSchedules uc = new ucSchedules();
-                    DataTable table = new DataTable();
-                    table.Load(reader);
-                    if (table.Rows.Count > 0)
+                    if (row["Username"].ToString() != User)
                     {
-                        DataRow row = table.Rows[0];
-                        uc.FillData(row);
-                        flowLayoutPanel1.Controls.Add(uc);
+                        continue; // Skip the current iteration of the loop
                     }
+                    ucSchedules uc = new ucSchedules();
+                    uc.FillData(row);
+                    flowLayoutPanel1.Controls.Add(uc);
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
@@ -67,12 +58,44 @@ namespace Undecided
                 myConn.Close();
             }
 
-            
 
 
-           
-            myConn.Close();
+
+
+
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ucSchedules uc = new ucSchedules();
+                if (uc.checkBox1.Checked)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete the selected schedule?", "Confirm Deletion", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        
+                        
+                            myConn.Open();
+                            string scheduleName = uc.checkBox1.Tag.ToString();
+                            string query = "DELETE FROM Schedules WHERE Sched_name = @SchedName";
+                            OleDbCommand cmd = new OleDbCommand(query, myConn);
+                            cmd.Parameters.AddWithValue("@SchedName", scheduleName);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Schedule deleted successfully.");
+                        
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a schedule to delete.");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
 }

@@ -30,12 +30,10 @@
         {
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
-            btnSched = new Button();
+            btnReports = new Button();
             btnAccounts = new Button();
             btnHistory = new Button();
             btnExit = new Button();
-            btnLists = new Button();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -57,17 +55,17 @@
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
-            // btnSched
+            // btnReports
             // 
-            btnSched.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnSched.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSched.Location = new Point(8, 383);
-            btnSched.Name = "btnSched";
-            btnSched.Size = new Size(211, 44);
-            btnSched.TabIndex = 14;
-            btnSched.Text = "View Schedules";
-            btnSched.UseVisualStyleBackColor = true;
-            btnSched.Click += btnSched_Click;
+            btnReports.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
+            btnReports.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnReports.Location = new Point(7, 333);
+            btnReports.Name = "btnReports";
+            btnReports.Size = new Size(211, 44);
+            btnReports.TabIndex = 14;
+            btnReports.Text = "View Reports";
+            btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // btnAccounts
             // 
@@ -85,7 +83,7 @@
             // 
             btnHistory.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnHistory.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHistory.Location = new Point(7, 433);
+            btnHistory.Location = new Point(6, 383);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(211, 44);
             btnHistory.TabIndex = 11;
@@ -96,7 +94,7 @@
             // 
             btnExit.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnExit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExit.Location = new Point(7, 533);
+            btnExit.Location = new Point(7, 483);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(211, 44);
             btnExit.TabIndex = 10;
@@ -104,23 +102,11 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
-            // btnLists
-            // 
-            btnLists.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnLists.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLists.Location = new Point(7, 333);
-            btnLists.Name = "btnLists";
-            btnLists.Size = new Size(211, 44);
-            btnLists.TabIndex = 9;
-            btnLists.Text = "View all Lists";
-            btnLists.UseVisualStyleBackColor = true;
-            btnLists.Click += btnLists_Click;
-            // 
             // btnLogout
             // 
             btnLogout.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(7, 483);
+            btnLogout.Location = new Point(6, 433);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(211, 44);
             btnLogout.TabIndex = 17;
@@ -137,11 +123,10 @@
             Controls.Add(btnLogout);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
-            Controls.Add(btnSched);
+            Controls.Add(btnReports);
             Controls.Add(btnAccounts);
             Controls.Add(btnHistory);
             Controls.Add(btnExit);
-            Controls.Add(btnLists);
             Name = "AdminPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminPage";
@@ -153,12 +138,10 @@
 
         private Panel panel1;
         private PictureBox pictureBox1;
-        private Button btnSched;
+        private Button btnReports;
         private Button btnAccounts;
         private Button btnHistory;
         private Button btnExit;
-        private Button btnLists;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button btnLogout;
     }
 }

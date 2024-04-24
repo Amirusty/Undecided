@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label2 = new Label();
             checkBox1 = new CheckBox();
             label1 = new Label();
-            label2 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +47,14 @@
             panel1.Size = new Size(121, 72);
             panel1.TabIndex = 0;
             panel1.Click += panel1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(27, 42);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 2;
             // 
             // checkBox1
             // 
@@ -65,14 +73,6 @@
             label1.Size = new Size(19, 15);
             label1.TabIndex = 0;
             label1.Text = "00";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(27, 42);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 2;
             // 
             // ucDay
             // 
@@ -94,6 +94,6 @@
         private Panel panel1;
         private CheckBox checkBox1;
         private Label label1;
-        private Label label2;
+        public Label label2;
     }
 }

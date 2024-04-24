@@ -51,21 +51,21 @@ namespace Undecided
             int daysInMonth = DateTime.DaysInMonth(year, month);
             int startingDayOfWeek = (int)startofTheMonth.DayOfWeek;
 
-            // Add empty controls for the days before the start of the month
+            
             for (int i = 0; i < startingDayOfWeek; i++)
             {
                 ucDay uc = new ucDay("");
                 flowLayoutPanel1.Controls.Add(uc);
             }
 
-            // Add controls for each day of the month
+            
             for (int i = 1; i <= daysInMonth; i++)
             {
                 ucDay uc = new ucDay(i.ToString());
                 flowLayoutPanel1.Controls.Add(uc);
             }
         }
-
+       
         private void btnNext_Click(object sender, EventArgs e)
         {
             _month += 1;

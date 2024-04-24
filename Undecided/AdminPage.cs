@@ -49,10 +49,7 @@ namespace Undecided
 
         }
 
-        private void btnSched_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -65,7 +62,7 @@ namespace Undecided
             if (dialogResult == DialogResult.Yes)
             {
                 Form1 form = new Form1();
-                
+
                 this.Close();
                 form.Show();
 
@@ -74,6 +71,12 @@ namespace Undecided
             {
 
             }
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            ViewReports reports = new ViewReports();
+            ShowPageInPanel(reports);
         }
     }
 }

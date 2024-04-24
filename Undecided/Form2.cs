@@ -5,10 +5,12 @@ using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Undecided
 {
@@ -16,7 +18,7 @@ namespace Undecided
     {
         OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
         OleDbDataAdapter? da;
-        OleDbCommand? cmd;
+        public string User;
         DataSet? ds;
         int indexRow;
         public ViewLists()
@@ -24,7 +26,11 @@ namespace Undecided
             InitializeComponent();
             da = new OleDbDataAdapter();
             ds = new DataSet();
-            dgvLists.Visible = false;
+
+            this.ControlBox = false;
+            this.MinimizeBox = true;
+            this.MaximizeBox = false;
+            User = MainMenu.UserName;
         }
 
 
@@ -55,28 +61,39 @@ namespace Undecided
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            RefreshPage();
+            ViewListtoAcc();
+            
+            
         }
-        private void RefreshPage()
+        private void ViewListtoAcc()
         {
             try
             {
-                dgvLists.Visible = false;
+                cbxListNames.Items.Clear();
                 myConn.Open();
 
+                string userColumnName = User;
 
-                DataTable schemaTable = myConn.GetSchema("Tables");
+                
+                DataTable schemaTable = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
 
-                cbxListNames.Items.Clear();
-
-
+                
                 foreach (DataRow row in schemaTable.Rows)
                 {
                     string tableName = row["TABLE_NAME"].ToString();
 
-                    if (!tableName.StartsWith("MSys"))
+                    
+                    DataTable tableSchema = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, tableName, null });
+
+                   
+                    foreach (DataRow columnRow in tableSchema.Rows)
                     {
-                        cbxListNames.Items.Add(tableName);
+                        string columnName = columnRow["COLUMN_NAME"].ToString();
+                        if (columnName == userColumnName)
+                        {
+                            cbxListNames.Items.Add(tableName);
+                            
+                        }
                     }
                 }
             }
@@ -87,18 +104,24 @@ namespace Undecided
             finally
             {
                 myConn.Close();
-                tbxListName.Text = null;
-                cbxListNames.SelectedIndex = 0;
-
             }
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            MainMenu mainMenu = new MainMenu();
             CreateList createList = new CreateList();
-            createList.Show();
-            this.Close();
-        }
+            mainMenu.panel1.Controls.Clear();
+            mainMenu.ShowPageInPanel(createList);
 
+            
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            OpenList open = new OpenList();
+            mainMenu.panel1.Controls.Clear();
+            mainMenu.ShowPageInPanel(open);
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this list?", "Delete List", MessageBoxButtons.YesNo);
@@ -130,8 +153,13 @@ namespace Undecided
                 }
                 finally
                 {
+                    
+
                     myConn.Close();
-                    RefreshPage();
+                    ViewListtoAcc();
+                    dgvLists.DataSource = null;
+                    tbxListName.Text = null;
+                    cbxListNames.SelectedIndex = 0;
                 }
                 return;
             }
@@ -150,10 +178,13 @@ namespace Undecided
 
         private void btnLoadList_Click(object sender, EventArgs e)
         {
-            dgvLists.Visible = true;
+            dgvLists.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             try
             {
+
                 RefreshDgv();
+                
+                
             }
             catch (Exception ex)
             {
@@ -163,27 +194,43 @@ namespace Undecided
             {
 
                 myConn.Close();
-                RefreshPage();
+                ViewListtoAcc();
+
             }
 
         }
-        private void RefreshDgv()
+        protected void RefreshDgv()
         {
-            string listName = cbxListNames.SelectedItem?.ToString();
+            string listName = tbxListName.Text.ToString();
+            if (tbxListName.Text == "")
+            {
+                MessageBox.Show("Please choose a valid list.");
+            }
+            else
+            {
+                da = new OleDbDataAdapter($"SELECT *FROM {listName}", myConn);
+                ds = new DataSet();
+                myConn.Open();
+                da.Fill(ds, listName);
+                dgvLists.DataSource = ds.Tables[listName];
+                string columnName = User;
+                dgvLists.Columns[$"{columnName}"].Visible = false;
+                myConn.Close();
+            }
 
-            da = new OleDbDataAdapter($"SELECT *FROM {listName}", myConn);
-            ds = new DataSet();
-            myConn.Open();
-            da.Fill(ds, listName);
-            dgvLists.DataSource = ds.Tables[listName];
-            myConn.Close();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        
+
+        private void ViewLists_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OpenList openList = new OpenList();
-            openList.Show();
-            this.Close();
+
+
+        }
+
+        private void ViewLists_Load(object sender, EventArgs e)
+        {
+            ViewListtoAcc();
         }
     }
 }

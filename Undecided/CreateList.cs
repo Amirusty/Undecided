@@ -17,23 +17,22 @@ namespace Undecided
         OleDbConnection myConn;
         OleDbDataAdapter da;
         DataSet ds;
-
+        private static string User;
+        
         public CreateList()
-        {
+        { 
             InitializeComponent();
 
-            
+
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
             da = new OleDbDataAdapter();
             ds = new DataSet();
+            
+            User = MainMenu.UserName;
+            
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            MainMenu frm = new MainMenu();
-            frm.Show();
-            this.Close();
-        }
+
 
         private void btnCreateList_Click(object sender, EventArgs e)
         {
@@ -48,11 +47,13 @@ namespace Undecided
 
                 if (!string.IsNullOrWhiteSpace(listName))
                 {
-                    string CreateListQuery = $"CREATE TABLE [{listName}] (ID AUTOINCREMENT PRIMARY KEY," +
-                                     $"item_name TEXT, " +
-                                     $"item_quantity INT, " +
-                                     $"item_price CURRENCY," +
-                                     $"subtotal CURRENCY)";
+                    string CreateListQuery = $"CREATE TABLE [{listName}] (" +
+                         $"{User} TEXT," +  
+                         $"ID AUTOINCREMENT PRIMARY KEY," + 
+                         $"item_name TEXT, " +
+                         $"item_quantity INT, " +
+                         $"item_price CURRENCY," +
+                         $"subtotal CURRENCY)";
                     OleDbCommand cmd = new OleDbCommand(CreateListQuery, myConn);
                     cmd.ExecuteNonQuery();
 
@@ -60,9 +61,10 @@ namespace Undecided
                     MessageBox.Show($"List '{listName}' created successfully.");
                     da = new OleDbDataAdapter($"SELECT *FROM {listName}", myConn);
                     ds = new DataSet();
-
+                    dgvNewList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     da.Fill(ds, $"{listName}");
                     dgvNewList.DataSource = ds.Tables[$"{listName}"];
+                    dgvNewList.Columns[$"{User}"].Visible = false;
                     myConn.Close();
                 }
                 else
@@ -118,6 +120,7 @@ namespace Undecided
                     decimal price = Convert.ToDecimal(tbxPrice.Text);
                     int subtotal_int = quantity * (Convert.ToInt32(tbxPrice.Text));
                     decimal subtotal = Convert.ToDecimal(subtotal_int);
+                    string userId = User;
 
                     string insertQuery = $"INSERT INTO [{listName}] (item_name, item_quantity, item_price, subtotal) " +
                                          $"VALUES (@ItemName, @Quantity, @Price,@Subtotal)";
@@ -126,6 +129,7 @@ namespace Undecided
                     insertCmd.Parameters.AddWithValue("@Quantity", quantity);
                     insertCmd.Parameters.AddWithValue("@Price", price);
                     insertCmd.Parameters.AddWithValue("@Subtotal", subtotal);
+                    
                     insertCmd.ExecuteNonQuery();
 
 
@@ -138,9 +142,9 @@ namespace Undecided
                     MessageBox.Show("Please enter a table name.");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: Please input proper details. ");
             }
             finally
             {
@@ -164,7 +168,7 @@ namespace Undecided
                     {
                         int selectedID = Convert.ToInt32(dgvNewList.SelectedRows[0].Cells["ID"].Value);
 
-                        
+
                         string deleteQuery = $"DELETE FROM [{listName}] WHERE ID = @ID";
                         OleDbCommand deleteCmd = new OleDbCommand(deleteQuery, myConn);
                         deleteCmd.Parameters.AddWithValue("@ID", selectedID);
@@ -205,8 +209,8 @@ namespace Undecided
                 int quantity = Convert.ToInt32(tbxQuantity.Text);
                 decimal price = Convert.ToDecimal(tbxPrice.Text);
                 decimal subtotal = quantity * price;
+                dgvNewList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                
                 string query = $"UPDATE [{listName}] SET item_name = @ItemName, " +
                                 $"item_quantity = @Quantity, " +
                                 $"item_price = @Price, " +
@@ -237,6 +241,11 @@ namespace Undecided
             tbxPrice.Text = "";
             tbxQuantity.Text = "";
         }
+
+       
+
+       
+        
     }
 
 

@@ -1,24 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Undecided.Form2">
-    <Position X="1" Y="1" Width="1.5" />
+  <Class Name="Undecided.Form3" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAECAAAAQAAACABAACAKAIAAgAAAACAAAAAAA=</HashCode>
-      <FileName>Form2.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Undecided.Form3">
-    <Position X="5.25" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACAgAAAAACAAABCAAACAAAACAAAAAAAAAIAAAAQAAAA=</HashCode>
+      <HashCode>ACAgAAAAECAAABSAAACAAAACAKAAAAAAAIACAAQAgAA=</HashCode>
       <FileName>Form3.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Undecided.Form1">
-    <Position X="3.25" Y="1" Width="1.5" />
+  <Class Name="Undecided.Form1" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAwAESEAABAAAACAAAACACAACAAAAAAAAADAAAA=</HashCode>
+      <HashCode>QAAAAAwAESEAABQAAQCAAAACAKAACAQCAAAIAADAAAA=</HashCode>
       <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.MainMenu" Collapsed="true">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABBAAkKQECAgAIAAAAGAAAACICABBAAAAQAgBSBAAAA=</HashCode>
+      <FileName>Form4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.ViewLists" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhAEEEFCAAABQQAAGADAICEIAIAAgECAgiAAAAAQQ=</HashCode>
+      <FileName>Form2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.History" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>History.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.CreateList" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAxBAGABCAAABAQAACAABwaAIAAoAAAAAACAAQAAQY=</HashCode>
+      <FileName>CreateList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.CreateSched" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAAABAAgACBAAACEIAAAAAEAAACAAAAAQA=</HashCode>
+      <FileName>CreateSched.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.OpenList" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAxAAEQBCAAABAQAACAABAKI4AAggAAAAACAAAAAQY=</HashCode>
+      <FileName>OpenList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.Schedule" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAMAQESAAAABAAAGAAAACIAAAAAAAAAAAAQRAAAA=</HashCode>
+      <FileName>Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.ViewAccounts" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgAAAAASAAABQQBCCAAAACAIAAAAAAAAACAAAAAQQ=</HashCode>
+      <FileName>ViewAccounts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Undecided.AdminPage" Collapsed="true">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAggIAACAQAAAAAACAAAACACAAAAQAAAAgAQBAQAA=</HashCode>
+      <FileName>AdminPage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

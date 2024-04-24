@@ -16,6 +16,7 @@ namespace Undecided
         OleDbConnection myConn;
         OleDbDataAdapter da;
         DataSet ds;
+        public static string User;
         public OpenList()
         {
 
@@ -23,14 +24,11 @@ namespace Undecided
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
             da = new OleDbDataAdapter();
             ds = new DataSet();
+
+            User = MainMenu.UserName;
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            MainMenu form4 = new MainMenu();
-            form4.Show();
-            this.Close();
-        }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -55,6 +53,7 @@ namespace Undecided
                     insertCmd.Parameters.AddWithValue("@Quantity", quantity);
                     insertCmd.Parameters.AddWithValue("@Price", price);
                     insertCmd.Parameters.AddWithValue("@Subtotal", subtotal);
+
                     insertCmd.ExecuteNonQuery();
 
 
@@ -67,9 +66,9 @@ namespace Undecided
                     MessageBox.Show("Please enter a table name.");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: Please input proper details. ");
             }
             finally
             {
@@ -134,38 +133,45 @@ namespace Undecided
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvList.SelectedRows.Count > 0)
+            try
             {
-                int selectedID = Convert.ToInt32(dgvList.SelectedRows[0].Cells["ID"].Value);
-                string listName = tbxList.Text;
-                string itemName = tbxItem.Text;
-                int quantity = Convert.ToInt32(tbxQuantity.Text);
-                decimal price = Convert.ToDecimal(tbxPrice.Text);
-                decimal subtotal = quantity * price;
+                if (dgvList.SelectedRows.Count > 0)
+                {
+                    int selectedID = Convert.ToInt32(dgvList.SelectedRows[0].Cells["ID"].Value);
+                    string listName = tbxList.Text;
+                    string itemName = tbxItem.Text;
+                    int quantity = Convert.ToInt32(tbxQuantity.Text);
+                    decimal price = Convert.ToDecimal(tbxPrice.Text);
+                    decimal subtotal = quantity * price;
 
 
-                string query = $"UPDATE [{listName}] SET item_name = @ItemName, " +
-                                $"item_quantity = @Quantity, " +
-                                $"item_price = @Price, " +
-                                $"subtotal = @Subtotal " +
-                $"WHERE ID = @ID";
-                OleDbCommand cmd = new OleDbCommand(query, myConn);
-                cmd.Parameters.AddWithValue("@ItemName", itemName);
-                cmd.Parameters.AddWithValue("@Quantity", quantity);
-                cmd.Parameters.AddWithValue("@Price", price);
-                cmd.Parameters.AddWithValue("@Subtotal", subtotal);
-                cmd.Parameters.AddWithValue("@ID", selectedID);
-                myConn.Open();
-                cmd.ExecuteNonQuery();
+                    string query = $"UPDATE [{listName}] SET item_name = @ItemName, " +
+                                    $"item_quantity = @Quantity, " +
+                                    $"item_price = @Price, " +
+                                    $"subtotal = @Subtotal " +
+                    $"WHERE ID = @ID";
+                    OleDbCommand cmd = new OleDbCommand(query, myConn);
+                    cmd.Parameters.AddWithValue("@ItemName", itemName);
+                    cmd.Parameters.AddWithValue("@Quantity", quantity);
+                    cmd.Parameters.AddWithValue("@Price", price);
+                    cmd.Parameters.AddWithValue("@Subtotal", subtotal);
+                    cmd.Parameters.AddWithValue("@ID", selectedID);
+                    myConn.Open();
+                    cmd.ExecuteNonQuery();
 
-                RefreshDgv();
-                myConn.Close();
-                ClearTextBox();
-                MessageBox.Show("Item updated successfully.");
+                    RefreshDgv();
+                    myConn.Close();
+                    ClearTextBox();
+                    MessageBox.Show("Item updated successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Please select the row to update.");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Please select the row to update.");
+                MessageBox.Show("Error: Please input proper details. ");
             }
         }
         private void ClearTextBox()
@@ -178,15 +184,67 @@ namespace Undecided
         private void btnOpen_Click(object sender, EventArgs e)
         {
 
-            string listName = tbxList.Text;
+            string listName = tbxList.Text.Trim();
 
-            da = new OleDbDataAdapter($"SELECT *FROM {listName}", myConn);
-            ds = new DataSet();
-            myConn.Open();
-            da.Fill(ds, listName);
-            dgvList.DataSource = ds.Tables[listName];
-            myConn.Close();
+            if (string.IsNullOrEmpty(listName))
+            {
+                MessageBox.Show("Please input a list name.");
+                return;
+            }
 
+            try
+            {
+
+
+                myConn.Open();
+
+                string tableName = tbxList.Text;
+                string columnName = User; 
+                bool tableFound = false;
+
+                DataTable tables = myConn.GetSchema("Tables");
+                foreach (DataRow table in tables.Rows)
+                {
+                    string tbl = table["TABLE_NAME"].ToString();
+                    if (tbl == tableName)
+                    {
+                        tableFound = true;
+                        OleDbCommand cmd = new OleDbCommand("SELECT * FROM [" + tableName + "]", myConn);
+                        OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt.Columns.Contains(columnName))
+                        {
+                            dt.Columns[columnName].ColumnMapping = MappingType.Hidden;
+                        }
+
+                        dgvList.DataSource = dt;
+                        dgvList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dgvList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dgvList.Columns[columnName].Visible = false; 
+                        break;
+                    }
+                }
+
+                if (tableFound)
+                {
+                    MessageBox.Show("List found!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("List not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (myConn.State == ConnectionState.Open)
+                    myConn.Close();
+            }
         }
 
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -201,6 +259,52 @@ namespace Undecided
                 tbxQuantity.Text = row.Cells["item_quantity"].Value.ToString();
                 tbxPrice.Text = row.Cells["item_price"].Value.ToString();
             }
+        }
+        private void ViewListtoAcc()
+        {
+            try
+            {
+                cbxListNames.Items.Clear();
+                myConn.Open();
+
+                string userColumnName = User;
+
+
+                DataTable schemaTable = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+
+
+                foreach (DataRow row in schemaTable.Rows)
+                {
+                    string tableName = row["TABLE_NAME"].ToString();
+
+
+                    DataTable tableSchema = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, tableName, null });
+
+
+                    foreach (DataRow columnRow in tableSchema.Rows)
+                    {
+                        string columnName = columnRow["COLUMN_NAME"].ToString();
+                        if (columnName == userColumnName)
+                        {
+                            cbxListNames.Items.Add(tableName);
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+
+        private void OpenList_Load(object sender, EventArgs e)
+        {
+            ViewListtoAcc();
         }
     }
 }

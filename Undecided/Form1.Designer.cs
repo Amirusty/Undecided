@@ -35,6 +35,10 @@
             label2 = new Label();
             btnLogin = new Button();
             btnCreateAcc = new Button();
+            pictureBox1 = new PictureBox();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            label3 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnExit
@@ -52,7 +56,7 @@
             // tbxUser
             // 
             tbxUser.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxUser.Location = new Point(125, 90);
+            tbxUser.Location = new Point(126, 166);
             tbxUser.Name = "tbxUser";
             tbxUser.Size = new Size(151, 33);
             tbxUser.TabIndex = 2;
@@ -60,7 +64,7 @@
             // tbxPass
             // 
             tbxPass.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxPass.Location = new Point(125, 139);
+            tbxPass.Location = new Point(126, 215);
             tbxPass.Name = "tbxPass";
             tbxPass.Size = new Size(151, 33);
             tbxPass.TabIndex = 3;
@@ -69,7 +73,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 98);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(22, 174);
             label1.Name = "label1";
             label1.Size = new Size(101, 25);
             label1.TabIndex = 4;
@@ -79,7 +84,8 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(21, 142);
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(22, 218);
             label2.Name = "label2";
             label2.Size = new Size(95, 25);
             label2.TabIndex = 5;
@@ -100,22 +106,45 @@
             // 
             // btnCreateAcc
             // 
-            btnCreateAcc.BackgroundImage = Properties.Resources.wallhaven_3lg6ld_1920x1080;
+            btnCreateAcc.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnCreateAcc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCreateAcc.Location = new Point(32, 356);
             btnCreateAcc.Name = "btnCreateAcc";
-            btnCreateAcc.Size = new Size(229, 21);
+            btnCreateAcc.Size = new Size(229, 25);
             btnCreateAcc.TabIndex = 7;
             btnCreateAcc.Text = "CREATE ACCOUNT";
             btnCreateAcc.UseVisualStyleBackColor = true;
             btnCreateAcc.Click += btnNewAcc_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.shoppa_high_resolution_logo_transparent__1_;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(32, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(245, 123);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLight;
+            label3.Location = new Point(109, 138);
+            label3.Name = "label3";
+            label3.Size = new Size(92, 25);
+            label3.TabIndex = 9;
+            label3.Text = "Welcome";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MediumSeaGreen;
+            BackColor = Color.DarkSlateGray;
             ClientSize = new Size(310, 426);
+            Controls.Add(label3);
+            Controls.Add(pictureBox1);
             Controls.Add(btnCreateAcc);
             Controls.Add(btnLogin);
             Controls.Add(label2);
@@ -127,6 +156,8 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            FormClosing += Form1_FormClosing;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -140,5 +171,8 @@
         private Label label2;
         private Button btnLogin;
         private Button btnCreateAcc;
+        private PictureBox pictureBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Label label3;
     }
 }

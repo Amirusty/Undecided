@@ -41,10 +41,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(86, 39);
+            label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(55, 40);
             label1.Name = "label1";
-            label1.Size = new Size(141, 25);
+            label1.Size = new Size(205, 37);
             label1.TabIndex = 0;
             label1.Text = "Create Account";
             // 
@@ -52,6 +53,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(28, 150);
             label2.Name = "label2";
             label2.Size = new Size(95, 25);
@@ -62,6 +64,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(28, 106);
             label3.Name = "label3";
             label3.Size = new Size(101, 25);
@@ -99,16 +102,18 @@
             // 
             // btnReturn
             // 
+            btnReturn.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnReturn.Location = new Point(29, 373);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(121, 41);
             btnReturn.TabIndex = 11;
-            btnReturn.Text = "Go back";
+            btnReturn.Text = "Return";
             btnReturn.UseVisualStyleBackColor = true;
             btnReturn.Click += btnReturn_Click;
             // 
             // btnExit
             // 
+            btnExit.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnExit.Location = new Point(156, 373);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(127, 41);
@@ -121,7 +126,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MediumSeaGreen;
+            BackColor = Color.DarkSlateGray;
             ClientSize = new Size(310, 426);
             Controls.Add(btnExit);
             Controls.Add(btnReturn);
@@ -134,6 +139,7 @@
             Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Create account";
+            FormClosing += Form3_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

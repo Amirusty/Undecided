@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            btnReturn = new Button();
             label1 = new Label();
             tbxListName = new TextBox();
             btnCreate = new Button();
@@ -54,17 +53,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
-            // btnReturn
-            // 
-            btnReturn.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
-            btnReturn.Location = new Point(789, 12);
-            btnReturn.Name = "btnReturn";
-            btnReturn.Size = new Size(127, 52);
-            btnReturn.TabIndex = 3;
-            btnReturn.Text = "Return to menu";
-            btnReturn.UseVisualStyleBackColor = true;
-            btnReturn.Click += btnReturn_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -86,7 +74,7 @@
             // 
             // btnCreate
             // 
-            btnCreate.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            btnCreate.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnCreate.Location = new Point(657, 75);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(79, 48);
@@ -97,7 +85,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            btnUpdate.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnUpdate.Location = new Point(742, 75);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(84, 48);
@@ -108,18 +96,18 @@
             // 
             // btnLoad
             // 
-            btnLoad.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            btnLoad.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnLoad.Location = new Point(657, 12);
             btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(127, 52);
+            btnLoad.Size = new Size(259, 52);
             btnLoad.TabIndex = 16;
-            btnLoad.Text = "Load All lists";
+            btnLoad.Text = "Refresh Lists";
             btnLoad.UseVisualStyleBackColor = true;
             btnLoad.Click += btnLoad_Click;
             // 
             // btnDelete
             // 
-            btnDelete.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            btnDelete.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnDelete.Location = new Point(832, 75);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(84, 48);
@@ -130,7 +118,7 @@
             // 
             // dgvLists
             // 
-            dgvLists.BackgroundColor = Color.SeaGreen;
+            dgvLists.BackgroundColor = Color.DarkSlateGray;
             dgvLists.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLists.Location = new Point(12, 12);
             dgvLists.Name = "dgvLists";
@@ -141,9 +129,9 @@
             // 
             cbxListNames.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxListNames.FormattingEnabled = true;
-            cbxListNames.Location = new Point(697, 167);
+            cbxListNames.Location = new Point(671, 167);
             cbxListNames.Name = "cbxListNames";
-            cbxListNames.Size = new Size(181, 29);
+            cbxListNames.Size = new Size(245, 29);
             cbxListNames.TabIndex = 19;
             cbxListNames.SelectedIndexChanged += cbxListNames_SelectedIndexChanged;
             // 
@@ -160,7 +148,7 @@
             // 
             // btnLoadList
             // 
-            btnLoadList.BackgroundImage = Properties.Resources.wallhaven_5g6mg1_1920x1080;
+            btnLoadList.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
             btnLoadList.Location = new Point(832, 280);
             btnLoadList.Name = "btnLoadList";
             btnLoadList.Size = new Size(84, 48);
@@ -185,11 +173,12 @@
             Controls.Add(btnCreate);
             Controls.Add(tbxListName);
             Controls.Add(label1);
-            Controls.Add(btnReturn);
             Controls.Add(button1);
             Name = "ViewLists";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ViewLists";
+            FormClosing += ViewLists_FormClosing;
+            Load += ViewLists_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLists).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -198,7 +187,6 @@
         #endregion
 
         private Button button1;
-        private Button btnReturn;
         private Label label1;
         private TextBox tbxListName;
         private Button btnCreate;

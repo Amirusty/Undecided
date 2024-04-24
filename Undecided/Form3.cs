@@ -18,14 +18,19 @@ namespace Undecided
         public Form3()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.MinimizeBox = true;
+           
         }
-        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\Documents\\UserLogin.mdb");
-        OleDbDataAdapter? da;
-        OleDbCommand? cmd;
-        DataSet? ds;
+        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
+        
         private void btnCreateNewAcc_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrWhiteSpace(tbxNewUser.Text) || string.IsNullOrWhiteSpace(tbxNewPass.Text))
+            {
+                MessageBox.Show("Please enter username or password");
+                return;
+            }
             string query = "INSERT INTO [User] (Username, [Password]) VALUES (@UserName, @Pass)";
 
             using (OleDbCommand cmd = new OleDbCommand(query, myConn))
@@ -34,7 +39,7 @@ namespace Undecided
                 {
                     myConn.Open();
 
-                    
+
                     string checkQuery = "SELECT COUNT(*) FROM [User] WHERE Username = @UserName";
                     using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, myConn))
                     {
@@ -48,11 +53,11 @@ namespace Undecided
                         }
                     }
 
-                    
+
                     cmd.Parameters.AddWithValue("@UserName", tbxNewUser.Text);
                     cmd.Parameters.AddWithValue("@Pass", tbxNewPass.Text);
 
-                    
+
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
@@ -68,6 +73,10 @@ namespace Undecided
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
+                finally
+                {
+                    myConn.Close();
+                }
             }
         }
 
@@ -82,6 +91,12 @@ namespace Undecided
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+
         }
     }
 }

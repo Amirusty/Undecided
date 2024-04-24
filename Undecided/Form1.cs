@@ -11,18 +11,22 @@ namespace Undecided
 {
     public partial class Form1 : Form
     {
+        public static string Username;
+        public static string Password;
 
         public Form1()
         {
             InitializeComponent();
-
+            this.ControlBox = false;
+            this.MinimizeBox = true;
+            this.MaximizeBox = false;
 
         }
 
-        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\UserLogin.mdb");
-        
+        OleDbConnection? myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Grace Anne Cogtas\\source\\repos\\Undecided\\Databases\\ProjectDatabase.mdb");
+
         OleDbCommand? cmd;
-        
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -42,15 +46,23 @@ namespace Undecided
                     cmd.Parameters.AddWithValue("@Pass", tbxPass.Text);
 
                     int count = (int)cmd.ExecuteScalar();
-
-                    if (count > 0)
+                    if (tbxUser.Text == "Admin101" && tbxPass.Text == "999111")
                     {
-                        
-                        this.Hide(); 
+
+                        AdminPage adminPage = new AdminPage();
+                        adminPage.Show();
+                        this.Hide();
+                    }
+                    else if (count > 0)
+                    {
+                        Username = tbxUser.Text;
+                        Password = tbxPass.Text;
+                        this.Hide();
                         MainMenu form4 = new MainMenu();
                         form4.Show();
                     }
-                    else
+                    
+                    else 
                     {
                         MessageBox.Show("Invalid username or password. Please try again.");
                     }
@@ -87,6 +99,9 @@ namespace Undecided
 
         }
 
-        
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

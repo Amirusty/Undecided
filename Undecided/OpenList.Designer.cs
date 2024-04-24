@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnReturn = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
             tbxPrice = new TextBox();
@@ -42,20 +41,9 @@
             tbxList = new TextBox();
             label1 = new Label();
             btnDelete = new Button();
+            cbxListNames = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvList).BeginInit();
             SuspendLayout();
-            // 
-            // btnReturn
-            // 
-            btnReturn.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnReturn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReturn.Location = new Point(800, 12);
-            btnReturn.Name = "btnReturn";
-            btnReturn.Size = new Size(116, 69);
-            btnReturn.TabIndex = 7;
-            btnReturn.Text = "Return to Main Menu";
-            btnReturn.UseVisualStyleBackColor = true;
-            btnReturn.Click += btnReturn_Click;
             // 
             // btnUpdate
             // 
@@ -140,7 +128,7 @@
             // 
             // dgvList
             // 
-            dgvList.BackgroundColor = Color.SeaGreen;
+            dgvList.BackgroundColor = Color.DarkSlateGray;
             dgvList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvList.Location = new Point(12, 120);
             dgvList.Name = "dgvList";
@@ -192,12 +180,22 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // cbxListNames
+            // 
+            cbxListNames.FormattingEnabled = true;
+            cbxListNames.Location = new Point(692, 563);
+            cbxListNames.Name = "cbxListNames";
+            cbxListNames.Size = new Size(121, 23);
+            cbxListNames.TabIndex = 31;
+            cbxListNames.Visible = false;
+            // 
             // OpenList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateGray;
             ClientSize = new Size(928, 598);
+            Controls.Add(cbxListNames);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
@@ -211,18 +209,16 @@
             Controls.Add(btnOpen);
             Controls.Add(tbxList);
             Controls.Add(label1);
-            Controls.Add(btnReturn);
             Name = "OpenList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OpenList";
+            Load += OpenList_Load;
             ((System.ComponentModel.ISupportInitialize)dgvList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnReturn;
         private Button btnUpdate;
         private Button btnAdd;
         private TextBox tbxPrice;
@@ -236,5 +232,6 @@
         private TextBox tbxList;
         private Label label1;
         private Button btnDelete;
+        public ComboBox cbxListNames;
     }
 }

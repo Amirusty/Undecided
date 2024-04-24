@@ -17,11 +17,9 @@ namespace Undecided
             InitializeComponent();
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private void History_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainMenu form4 = new MainMenu();
-            form4.Show();
-            this.Close();
+                Application.Exit();
         }
     }
 }

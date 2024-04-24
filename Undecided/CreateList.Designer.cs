@@ -31,7 +31,6 @@
             label1 = new Label();
             tbxNewList = new TextBox();
             btnCreateList = new Button();
-            btnReturn = new Button();
             dgvNewList = new DataGridView();
             tbxItem = new TextBox();
             label2 = new Label();
@@ -64,6 +63,7 @@
             tbxNewList.Name = "tbxNewList";
             tbxNewList.Size = new Size(260, 39);
             tbxNewList.TabIndex = 2;
+            
             // 
             // btnCreateList
             // 
@@ -77,21 +77,9 @@
             btnCreateList.UseVisualStyleBackColor = true;
             btnCreateList.Click += btnCreateList_Click;
             // 
-            // btnReturn
-            // 
-            btnReturn.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnReturn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReturn.Location = new Point(800, 12);
-            btnReturn.Name = "btnReturn";
-            btnReturn.Size = new Size(116, 69);
-            btnReturn.TabIndex = 6;
-            btnReturn.Text = "Return to Main Menu";
-            btnReturn.UseVisualStyleBackColor = true;
-            btnReturn.Click += btnReturn_Click;
-            // 
             // dgvNewList
             // 
-            dgvNewList.BackgroundColor = Color.SeaGreen;
+            dgvNewList.BackgroundColor = Color.DarkSlateGray;
             dgvNewList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNewList.Location = new Point(12, 120);
             dgvNewList.Name = "dgvNewList";
@@ -208,13 +196,26 @@
             Controls.Add(tbxItem);
             Controls.Add(label2);
             Controls.Add(dgvNewList);
-            Controls.Add(btnReturn);
             Controls.Add(btnCreateList);
             Controls.Add(tbxNewList);
             Controls.Add(label1);
             Name = "CreateList";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateList";
+            
+           
+            Controls.SetChildIndex(label1, 0);
+            Controls.SetChildIndex(tbxNewList, 0);
+            Controls.SetChildIndex(btnCreateList, 0);
+            Controls.SetChildIndex(dgvNewList, 0);
+            Controls.SetChildIndex(label2, 0);
+            Controls.SetChildIndex(tbxItem, 0);
+            Controls.SetChildIndex(label3, 0);
+            Controls.SetChildIndex(tbxQuantity, 0);
+            Controls.SetChildIndex(label4, 0);
+            Controls.SetChildIndex(tbxPrice, 0);
+            Controls.SetChildIndex(btnAdd, 0);
+            Controls.SetChildIndex(btnDelete, 0);
+            Controls.SetChildIndex(btnUpdate, 0);
             ((System.ComponentModel.ISupportInitialize)dgvNewList).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -225,7 +226,6 @@
         private Label label1;
         private TextBox tbxNewList;
         private Button btnCreateList;
-        private Button btnReturn;
         private DataGridView dgvNewList;
         private TextBox tbxItem;
         private Label label2;

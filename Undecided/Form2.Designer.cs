@@ -39,6 +39,8 @@
             cbxListNames = new ComboBox();
             label2 = new Label();
             btnLoadList = new Button();
+            label3 = new Label();
+            cbxSort = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvLists).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(657, 248);
+            label1.Location = new Point(657, 293);
             label1.Name = "label1";
             label1.Size = new Size(80, 21);
             label1.TabIndex = 4;
@@ -67,7 +69,7 @@
             // tbxListName
             // 
             tbxListName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxListName.Location = new Point(735, 245);
+            tbxListName.Location = new Point(735, 290);
             tbxListName.Name = "tbxListName";
             tbxListName.Size = new Size(181, 29);
             tbxListName.TabIndex = 6;
@@ -140,7 +142,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(742, 143);
+            label2.Location = new Point(671, 143);
             label2.Name = "label2";
             label2.Size = new Size(87, 21);
             label2.TabIndex = 20;
@@ -149,7 +151,7 @@
             // btnLoadList
             // 
             btnLoadList.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnLoadList.Location = new Point(832, 280);
+            btnLoadList.Location = new Point(832, 325);
             btnLoadList.Name = "btnLoadList";
             btnLoadList.Size = new Size(84, 48);
             btnLoadList.TabIndex = 21;
@@ -157,12 +159,36 @@
             btnLoadList.UseVisualStyleBackColor = true;
             btnLoadList.Click += btnLoadList_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(671, 205);
+            label3.Name = "label3";
+            label3.Size = new Size(47, 15);
+            label3.TabIndex = 23;
+            label3.Text = "Sort by:";
+            // 
+            // cbxSort
+            // 
+            cbxSort.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxSort.FormattingEnabled = true;
+            cbxSort.Items.AddRange(new object[] { "Name - Ascending", "Name - Descending", "Size - Ascending", "Size - Descending", "Total Amount - Ascending", "Total Amount - Descending" });
+            cbxSort.Location = new Point(762, 202);
+            cbxSort.Name = "cbxSort";
+            cbxSort.Size = new Size(154, 23);
+            cbxSort.TabIndex = 22;
+            cbxSort.SelectedIndexChanged += cbxSort_SelectedIndexChanged;
+            // 
             // ViewLists
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSlateGray;
             ClientSize = new Size(928, 598);
+            Controls.Add(label3);
+            Controls.Add(cbxSort);
             Controls.Add(btnLoadList);
             Controls.Add(label2);
             Controls.Add(cbxListNames);
@@ -197,5 +223,7 @@
         private ComboBox cbxListNames;
         private Label label2;
         private Button btnLoadList;
+        private Label label3;
+        private ComboBox cbxSort;
     }
 }

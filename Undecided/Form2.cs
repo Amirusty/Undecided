@@ -62,8 +62,8 @@ namespace Undecided
         private void btnLoad_Click(object sender, EventArgs e)
         {
             ViewListtoAcc();
-            
-            
+
+
         }
         private void ViewListtoAcc()
         {
@@ -74,25 +74,25 @@ namespace Undecided
 
                 string userColumnName = User;
 
-                
+
                 DataTable schemaTable = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
 
-                
+
                 foreach (DataRow row in schemaTable.Rows)
                 {
                     string tableName = row["TABLE_NAME"].ToString();
 
-                    
+
                     DataTable tableSchema = myConn.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, tableName, null });
 
-                   
+
                     foreach (DataRow columnRow in tableSchema.Rows)
                     {
                         string columnName = columnRow["COLUMN_NAME"].ToString();
                         if (columnName == userColumnName)
                         {
                             cbxListNames.Items.Add(tableName);
-                            
+
                         }
                     }
                 }
@@ -166,7 +166,7 @@ namespace Undecided
                 }
                 finally
                 {
-                    
+
 
                     myConn.Close();
                     ViewListtoAcc();
@@ -196,8 +196,8 @@ namespace Undecided
             {
 
                 RefreshDgv();
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -233,7 +233,7 @@ namespace Undecided
 
         }
 
-        
+
 
         private void ViewLists_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -244,6 +244,26 @@ namespace Undecided
         private void ViewLists_Load(object sender, EventArgs e)
         {
             ViewListtoAcc();
+        }
+
+        private void cbxSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbxSort.SelectedItem.ToString() == "")
+            {
+
+            }else if (cbxSort.SelectedItem.ToString() == "")
+            {
+
+            }
+            else if (cbxSort.SelectedItem.ToString() == "")
+            {
+
+            }
+            else if (cbxSort.SelectedItem.ToString() == "")
+            {
+
+            }
+            else
         }
     }
 }

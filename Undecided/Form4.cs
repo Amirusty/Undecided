@@ -114,6 +114,7 @@ namespace Undecided
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

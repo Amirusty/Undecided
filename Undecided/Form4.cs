@@ -120,13 +120,10 @@ namespace Undecided
         private void btnSearch_Click(object sender, EventArgs e)
         {
             SearchItem searchItem = new SearchItem();
-            ShowPageInPanel(searchItem);
+            searchItem.Show();
+
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            Reports reports = new Reports();
-            reports.Show();
-        }
+        
     }
 }

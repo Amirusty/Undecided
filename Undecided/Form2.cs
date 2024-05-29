@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -248,22 +249,87 @@ namespace Undecided
 
         private void cbxSort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbxSort.SelectedItem.ToString() == "")
+            if(cbxSort.SelectedItem.ToString() == "Name - Ascending")
             {
-
-            }else if (cbxSort.SelectedItem.ToString() == "")
-            {
-
+                var sortedItems = cbxListNames.Items.Cast<string>().OrderBy(item => item).ToArray();
+                cbxListNames.Items.Clear();
+                cbxListNames.Items.AddRange(sortedItems);
             }
-            else if (cbxSort.SelectedItem.ToString() == "")
+            else if (cbxSort.SelectedItem.ToString() == "Name - Descending")
             {
-
+                var sortedItems = cbxListNames.Items.Cast<string>().OrderByDescending(item => item).ToArray();
+                cbxListNames.Items.Clear();
+                cbxListNames.Items.AddRange(sortedItems);
             }
-            else if (cbxSort.SelectedItem.ToString() == "")
+            else if (cbxSort.SelectedItem.ToString() == "Size - Ascending")
             {
-
+                var tableCounts = GetTableRecordCounts();
+                var sortedTables = tableCounts.OrderBy(tc => tc.Value).Select(tc => tc.Key).ToArray();
+                UpdateComboBox(sortedTables);
             }
-            else
+            else if (cbxSort.SelectedItem.ToString() == "Size - Descending")
+            {
+                var tableCounts = GetTableRecordCounts();
+                var sortedTables = tableCounts.OrderByDescending(tc => tc.Value).Select(tc => tc.Key).ToArray();
+                UpdateComboBox(sortedTables);
+            }
+            else if (cbxSort.SelectedItem.ToString() == "Total Amount - Ascending")
+            {
+                var tableSums = GetTableSubtotalSums();
+                var sortedTables = tableSums.OrderBy(ts => ts.Value).Select(ts => ts.Key).ToArray();
+                UpdateComboBox(sortedTables);
+            }
+            else if (cbxSort.SelectedItem.ToString() == "Total Amount - Descending")
+            {
+                var tableSums = GetTableSubtotalSums();
+                var sortedTables = tableSums.OrderByDescending(ts => ts.Value).Select(ts => ts.Key).ToArray();
+                UpdateComboBox(sortedTables);
+            }
+        }
+        private void UpdateComboBox(string[] sortedTables)
+        {
+            cbxListNames.Items.Clear();
+            cbxListNames.Items.AddRange(sortedTables);
+        }
+        private Dictionary<string, int> GetTableRecordCounts()
+        {
+            Dictionary<string, int> tableCounts = new Dictionary<string, int>();
+
+            myConn.Open();
+            foreach (string tableName in cbxListNames.Items)
+            {
+                using (OleDbCommand command = new OleDbCommand($"SELECT COUNT(*) FROM [{tableName}]", myConn))
+                {
+                    int count = (int)command.ExecuteScalar();
+                    tableCounts[tableName] = count;
+                }
+            }
+            myConn.Close();
+
+            return tableCounts;
+        }
+        private Dictionary<string, double> GetTableSubtotalSums()
+        {
+            Dictionary<string, double> tableSums = new Dictionary<string, double>();
+
+            myConn.Open();
+            foreach (string tableName in cbxListNames.Items)
+            {
+                using (OleDbCommand command = new OleDbCommand($"SELECT SUM([subtotal]) FROM [{tableName}]", myConn))
+                {
+                    var result = command.ExecuteScalar();
+                    double sum = result != DBNull.Value ? Convert.ToDouble(result) : 0.0;
+                    tableSums[tableName] = sum;
+                }
+            }
+            myConn.Close();
+
+            return tableSums;
         }
     }
 }
+
+
+
+
+

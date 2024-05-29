@@ -16,5 +16,16 @@ namespace Undecided
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports();
+            reports.Show();
+        }
     }
 }

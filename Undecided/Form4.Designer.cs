@@ -39,7 +39,6 @@
             btnLogout = new Button();
             btnSearch = new Button();
             label1 = new Label();
-            btnReport = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -169,18 +168,6 @@
             label1.TabIndex = 11;
             label1.Text = "Currently logged in as";
             // 
-            // btnReport
-            // 
-            btnReport.BackgroundImage = Properties.Resources._99412011_2644547135774652_7049028762897219584_n;
-            btnReport.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReport.Location = new Point(12, 488);
-            btnReport.Name = "btnReport";
-            btnReport.Size = new Size(211, 44);
-            btnReport.TabIndex = 2;
-            btnReport.Text = "Report / Suggestions";
-            btnReport.UseVisualStyleBackColor = true;
-            btnReport.Click += btnReport_Click;
-            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -195,7 +182,6 @@
             Controls.Add(btnSched);
             Controls.Add(btnOpen);
             Controls.Add(btnCreate);
-            Controls.Add(btnReport);
             Controls.Add(btnExit);
             Controls.Add(btnShow);
             Name = "MainMenu";
@@ -223,6 +209,5 @@
         public Panel panel1;
         private Label label1;
         private PictureBox pictureBox2;
-        private Button btnReport;
     }
 }
